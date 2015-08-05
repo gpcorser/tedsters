@@ -52,7 +52,20 @@
                         <label class="control-label">Person</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['les_per_id'];?>
+                                <?php 
+								    # echo $data['les_per_id'];
+								    $les_per_id = $data['les_per_id'];
+									$pdo = Database::connect();
+									$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+									$sql = "SELECT * FROM persons2 where per_id = ?";
+									$q = $pdo->prepare($sql);
+									$q->execute(array($les_per_id));
+									$data2 = $q->fetch(PDO::FETCH_ASSOC);
+									$per_name = $data2['per_name'];
+									Database::disconnect();
+									echo $per_name;	
+						        ?>		
+
                             </label>
                         </div>
                       </div>
@@ -70,7 +83,7 @@
                         <label class="control-label">Lab Notes URL</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['les_labnotes'];?>
+                                <?php echo $data['les_labnotes_url'];?>
                             </label>
                         </div>
                       </div>
