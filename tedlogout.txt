@@ -1,0 +1,10 @@
+<?php	
+	session_start();
+	
+	if(isset($_POST['logoutSubmit'])) // If the user pressed the Submit button
+	{
+        $_SESSION["id"] = "";
+	}
+	header('Location: tedsters.php');
+
+?>
