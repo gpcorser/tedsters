@@ -34,7 +34,7 @@
 
                    include 'database.php';
                    $pdo = Database::connect();
-                   $sql = 'SELECT * FROM persons2 ORDER BY per_name DESC';
+                   $sql = 'SELECT * FROM persons2 ORDER BY per_name ASC';
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
                             echo '<td>'. $row['per_name'] . '</td>';
@@ -42,11 +42,11 @@
                             echo '<td>'. $row['per_phone'] . '</td>';
 							echo '<td>'. $row['per_institution'] . '</td>';
 				
-							echo '<td><a class="btn" href="per_read.php?id='.$row['per_id'].'">Read</a>';
+							echo '<td><a class="btn" href="per_read.php?per_id='.$row['per_id'].'">Read</a>';
 							echo ' ';
-                            echo '<a class="btn btn-success" href="per_update.php?id='.$row['per_id'].'">Update</a>';
+                            echo '<a class="btn btn-success" href="per_update.php?per_id='.$row['per_id'].'">Update</a>';
                             echo ' ';
-                            echo '<a class="btn btn-danger" href="per_delete.php?id='.$row['per_id'].'">Delete</a>';
+                            echo '<a class="btn btn-danger" href="per_delete.php?per_id='.$row['per_id'].'">Delete</a>';
 				
                             echo '</td>';
                             echo '</tr>';
