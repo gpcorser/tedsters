@@ -52,8 +52,8 @@
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $name = $data['per_name'];
         $email = $data['per_email'];
-        $mobile = $data['per_phone'];
-		$committee = $data['per_institution'];
+        $phone = $data['per_phone'];
+		$institution = $data['per_institution'];
         Database::disconnect();
     }
 ?>

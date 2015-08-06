@@ -1,21 +1,26 @@
 <?php
 
     require 'database.php';
-    $id = null;
+	
+    $id = 0;
+     
     if ( !empty($_GET['les_id'])) {
         $id = $_REQUEST['les_id'];
     }
      
-    if ( null==$id ) {
-        header("Location: les_list.php");
-    } else {
+    if ( !empty($_POST)) {
+        // keep track post values
+        $id = $_POST['les_id'];
+         
+        // delete data
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM lessons2 where les_id = ?";
+        $sql = "DELETE FROM lessons2 WHERE les_id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
+        header("Location: les_list.php");
+         
     }
 ?>
  
@@ -30,12 +35,24 @@
 <body>
     <div class="container">
      
-		<div class="span10 offset1">
+        <div class="span10 offset1">
 			<div class="row">
-				<h3>Read Lesson</h3>
+				<h3>Delete Lesson</h3>
 			</div>
 			 
-			<div class="form-horizontal" >
+			<form class="form-horizontal" action="les_delete.php" method="post">
+			  <input type="hidden" name="les_id" value="<?php echo $id;?>"/>
+			  <p class="alert alert-error">Are you sure you want to delete (<?php echo $id;?>)?
+			  </p>
+			  <?php 
+					$pdo = Database::connect();
+					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					$sql = "SELECT * FROM lessons2 where les_id = ?";
+					$q = $pdo->prepare($sql);
+					$q->execute(array($id));
+					$data = $q->fetch(PDO::FETCH_ASSOC);
+					Database::disconnect();
+			  ?>
 			
 			  <div class="control-group">
 				<label class="control-label">Lesson Name</label>
@@ -45,8 +62,6 @@
 					</label>
 				</div>
 			  </div>
-			  
-			  <!-- optional: add person -->
 			  
 			  <div class="control-group">
 				<label class="control-label">Person</label>
@@ -105,13 +120,17 @@
 					</label>
 				</div>
 			  </div>
-
-				<div class="form-actions">
-				  <a class="btn" href="les_list.php">Back</a>
-			   </div>
+			   
+			   	<div class="form-actions">
+				  <button type="submit" class="btn btn-danger">Yes</button>
+				  <a class="btn" href="les_list.php">No</a>
+				</div>
+			</form>
 
 			</div>
 		</div>
+
+<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >Source code: les_delete.php</a>
                  
     </div> <!-- /container -->
   </body>
