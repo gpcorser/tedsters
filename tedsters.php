@@ -64,6 +64,10 @@
                             echo ' ';
                             echo '<a class="btn btn-danger" href="teddelete.php?id='.$row['id'].'">Delete</a>';
 							}
+							else
+							{
+							echo '<td>Login required.</td>';
+							}
                             echo '</td>';
                             echo '</tr>';
                    }

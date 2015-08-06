@@ -17,6 +17,8 @@
 		{
 		    $_SESSION["id"] = $sess_id;
 			// If the user came from the login page, direct them to the landing page
+			
+
 			if ($_SERVER['HTTP_REFERER'] == "http://csis.svsu.edu/~gpcorser/tedsters.php" 
 			    || $_SERVER['HTTP_REFERER'] == "http://csis.svsu.edu/~gpcorser/tedlogin.php" )
 			{
@@ -30,6 +32,7 @@
 				header('Location: '. $_SERVER['HTTP_REFERER']);
 				exit;
 			}
+
 		}
 				
 	}
