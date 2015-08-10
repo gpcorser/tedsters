@@ -101,5 +101,8 @@
                 </div>
                  
     </div> <!-- /container -->
+	<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
   </body>
 </html>

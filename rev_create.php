@@ -200,12 +200,14 @@ h1 { font-size: 1.5em; margin: 10px; }
                       <div class="form-actions"> 
                           <button type="submit" class="btn btn-success">Create</button> 
                           <a class="btn" href="rev_list.php">Back</a> 
-                              <a href="phpReader.php?file='<?php echo __FILE__; ?>'" > Source Code rev_create.txt</a> 
 
                         </div> 
                     </form> 
                 </div> 
                   
     </div> <!-- /container --> 
+		<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
   </body> 
 </html>

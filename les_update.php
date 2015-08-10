@@ -76,11 +76,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js"></script>
-</head>
+<head> 
+    <meta charset="utf-8"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+    <style> .glyphicon{ color: #f6d200; } </style> 
+</head> 
  
 <body>
     <div class="container">
@@ -181,5 +183,8 @@
 		</div>
                  
     </div> <!-- /container -->
+	<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
   </body>
 </html>

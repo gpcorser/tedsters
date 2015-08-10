@@ -79,9 +79,10 @@ $radioError = null;
 <html lang="en"> 
 <head> 
     <meta charset="utf-8"> 
-    <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
-     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+
     <style> 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css); 
 
@@ -242,12 +243,15 @@ h1 { font-size: 1.5em; margin: 10px; }
                       <div class="form-actions"> 
                           <button type="submit" class="btn btn-success">Update</button> 
                           <a class="btn" href="rev_list.php">Back</a> 
-                         <a href="phpReader.php?file='<?php echo __FILE__; ?>'" > Source Code les_update.txt</a> 
+                      
 
                         </div> 
                     </form> 
                 </div> 
                   
     </div> <!-- /container --> 
+		<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
   </body> 
 </html> 

@@ -35,8 +35,10 @@
 <html lang="en"> 
 <head> 
     <meta charset="utf-8"> 
- <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+    <style> .glyphicon{ color: #f6d200; } </style> 
 </head> 
   
 <body> 
@@ -87,12 +89,15 @@
                       <div class="form-actions"> 
                           <button type="submit" class="btn btn-danger">Yes</button> 
                           <a class="btn" href="rev_list.php">No</a> 
-                         <a href="phpReader.php?file='<?php echo __FILE__; ?>'" > Source Code rev_delete.txt</a> 
+                      
   
                         </div> 
                     </form> 
                 </div> 
                   
     </div> <!-- /container --> 
+		<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
   </body> 
 </html> 

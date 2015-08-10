@@ -2,16 +2,11 @@
 <!-- from : http://www.startutorial.com/articles/view/php-crud-tutorial-part-1 --> 
 <html lang="en"> 
 <head> 
-    <meta charset="utf-8">  
-  <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <meta charset="utf-8"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script> 
-    <style> 
-    .glyphicon{ 
- color: #f6d200;  
-    } 
-    </style> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+    <style> .glyphicon{ color: #f6d200; } </style> 
 </head> 
   
 <body> 
@@ -19,6 +14,8 @@
             <div class="row"> 
                 <h3 style="margin-left:50px; ">Reviews List</h3> 
             </div> 
+			
+
 
             <div class="row"> 
                 <table class="table table-striped table-bordered" style="margin-left:50px; max-width: 800px;"> 
@@ -32,6 +29,18 @@
                     </tr> 
                   </thead> 
                   <tbody> 
+					<?php 
+					echo '<p> 
+						<a href="rev_create.php" class="btn btn-success"  
+						style="margin-left:50px;">Create New Review</a> 
+						<a href="per_list.php" class="btn btn-info" 
+						style="margin-left:50px;">Persons List</a>
+						<a href="les_list.php" class="btn btn-info" 
+						style="margin-left:50px;">Lessons List</a>
+						<a href="rev_list.php" class="btn btn-info" 
+						style="margin-left:50px;">Reviews List</a>
+						</p>';
+					?>
                   <?php 
                    include 'database.php'; 
                    $pdo = Database::connect(); 
@@ -91,17 +100,13 @@
                    Database::disconnect(); 
                   ?> 
                   </tbody> 
-                   
+
             </table> 
-            <?php 
-            echo '<p> 
-                    <a href="rev_create.php" class="btn btn-success"  
-                    style="margin-left:50px;">Create</a> 
-                    </p>'; 
-            ?> 
-            <a href="phpReader.php?file='<?php echo __FILE__; ?>'" > Source Code rev_list.txt</a>     
         </div> 
     </div> <!-- /container --> 
+	<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
   </body> 
 </html> 
 <script> 
