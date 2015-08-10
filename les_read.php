@@ -112,7 +112,19 @@
 
 			</div>
 		</div>
-                 
+		<?php 
+		
+			$url = $data['les_video_url'] ;
+			$parts = parse_url($url);
+			$q = $parts['query'];
+			if (strpos( $q, '=')) 
+			    $q=substr($q, strpos( $q, '=') + 1, 1024);
+
+echo "Displaying https://www.youtube.com/embed/" . $q ;
+echo '<br />';
+echo '<iframe width="420" height="315" src="https://www.youtube.com/embed/'. $q .'" frameborder="0" allowfullscreen></iframe>';
+
+?>
     </div> <!-- /container -->
-  </body>
+	</body>
 </html>

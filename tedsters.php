@@ -10,7 +10,7 @@
 <body>
     <div class="container">
             <div class="row">
-                <h3 style="margin-left:50px; ">Tedster Committee Assignments</h3>
+                <h3 style="margin-left:50px; ">TEDxSVSU Committee Assignments</h3>
             </div>
 			<?php
 			    session_start();
