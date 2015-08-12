@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+if (!$_SESSION['email']) header('Location: login.php');
+
     require 'database.php';
     $id = null;
     if ( !empty($_GET['les_id'])) {
@@ -51,7 +54,7 @@
 			  <!-- optional: add person -->
 			  
 			  <div class="control-group">
-				<label class="control-label">Person</label>
+				<label class="control-label">Person (Author)</label>
 				<div class="controls">
 					<label class="checkbox">
 						<?php 
@@ -115,12 +118,14 @@
 			</div>
 		</div>
 		<?php 
-		
+		/*
 			$url = $data['les_video_url'] ;
 			$parts = parse_url($url);
 			$q = $parts['query'];
 			if (strpos( $q, '=')) 
 			    $q=substr($q, strpos( $q, '=') + 1, 1024);
+		*/
+		$q = $data['les_video_url'] ;
 
 echo "Displaying https://www.youtube.com/embed/" . $q ;
 echo '<br />';

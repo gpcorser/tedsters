@@ -1,4 +1,9 @@
 <?php 
+
+session_start();
+if (!$_SESSION['email']) header('Location: login.php');
+
+
     require 'database.php'; 
     $id = null; 
     if ( !empty($_GET['id'])) { 
@@ -22,17 +27,63 @@
 <html lang="en"> 
 <head> 
     <meta charset="utf-8"> 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
-    <style> .glyphicon{ color: #f6d200; } </style> 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+<style> 
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css); 
+
+fieldset, label { margin: 0; padding: 0; } 
+body{ margin: 20px; } 
+h1 { font-size: 1.5em; margin: 10px; } 
+
+/****** Style Star Rating Widget *****/ 
+
+.rating {  
+  border: none; 
+  float: left; 
+} 
+
+.rating > input { display: none; }  
+.rating > label:before {  
+  margin: 5px; 
+  font-size: 1.25em; 
+  font-family: FontAwesome; 
+  display: inline-block; 
+  content: "\f005"; 
+} 
+
+.rating > .half:before {  
+  content: "\f089"; 
+  position: absolute; 
+} 
+
+.rating > label {  
+  color: #ddd;  
+ float: right;  
+} 
+
+/***** CSS Magic to Highlight Stars on Hover *****/ 
+
+.rating > input:checked ~ label, /* show gold star when clicked */ 
+.rating:not(:checked) > label:hover, /* hover current star */ 
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */ 
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */ 
+.rating > input:checked ~ label:hover, 
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */ 
+.rating > input:checked ~ label:hover ~ label { color: #f6d200;  }  
+
+</style> 
 </head> 
   
 <body> 
     <div class="container"> 
                 <div class="span10 offset1"> 
                     <div class="row"> 
-                        <h3>Read a Lesson</h3> 
+                        <h3>Read Review</h3> 
                     </div> 
                       
                     <div class="form-horizontal" > 
@@ -40,7 +91,7 @@
           
                        
                       <div class="control-group"> 
-                        <label class="control-label">Person</label> 
+                        <label class="control-label">Person (Reviewer)</label> 
                         <div class="controls"> 
                             <label class="checkbox"> 
 

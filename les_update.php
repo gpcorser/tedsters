@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+if (!$_SESSION['email']) header('Location: login.php');
+
+
     require 'database.php';
  
     $id = null;
@@ -105,7 +109,7 @@
                       </div>
 					  
 					  <div class="control-group">
-					    <label class="control-label">Person</label>
+					    <label class="control-label">Person (Author)</label>
 					    <div class="controls">
 							<?php
 							$pdo = Database::connect();

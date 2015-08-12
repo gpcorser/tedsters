@@ -1,3 +1,7 @@
+<?php 
+session_start();
+if (!$_SESSION['email']) header('Location: login.php');
+?>
 <!DOCTYPE html>
 <!-- from : http://www.startutorial.com/articles/view/php-crud-tutorial-part-1 -->
 <html lang="en">
@@ -16,6 +20,11 @@
 		</div>
 		<div class="row">
 			<table class="table table-striped table-bordered" style="margin-left:50px; max-width: 800px;">
+				  <col style="width: 15%;">
+				  <col style="width: 20%;">
+				  <col style="width: 15%;">
+				  <col style="width: 15%;">
+				  <col style="width: 35%;">
 			  <thead>
 				<tr>
 				  <th>Name</th>
@@ -37,6 +46,8 @@
 					  style="margin-left:50px;">Lessons List</a>
 					  <a href="rev_list.php" class="btn btn-info" 
 					  style="margin-left:50px;">Reviews List</a>
+					  <a href="logout.php" class="btn btn-danger" 
+					  style="margin-left:50px;">Logout</a>
 					  </p>';
 
 
@@ -51,11 +62,12 @@
 						echo '<td>'. $row['per_institution'] . '</td>';
 			
 						echo '<td><a class="btn" href="per_read.php?per_id='.$row['per_id'].'">Read</a>';
-						echo ' ';
-						echo '<a class="btn btn-success" href="per_update.php?per_id='.$row['per_id'].'">Update</a>';
-						echo ' ';
-						echo '<a class="btn btn-danger" href="per_delete.php?per_id='.$row['per_id'].'">Delete</a>';
-			
+						if($_SESSION['per_id']==$row['per_id'] or $_SESSION['per_id']==1) { # per_id 1 is administrator
+							echo ' ';
+							echo '<a class="btn btn-success" href="per_update.php?per_id='.$row['per_id'].'">Update</a>';
+							echo ' ';
+							echo '<a class="btn btn-danger" href="per_delete.php?per_id='.$row['per_id'].'">Delete</a>';
+						}
 						echo '</td>';
 						echo '</tr>';
 			   }

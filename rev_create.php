@@ -1,4 +1,8 @@
 <?php 
+
+session_start();
+if (!$_SESSION['email']) header('Location: login.php');
+
     require 'database.php'; 
   
     if ( !empty($_POST)) { 
@@ -47,12 +51,11 @@
 <html lang="en"> 
 <head> 
     <meta charset="utf-8"> 
- <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <link   href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
-     
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <style> 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css); 
 
@@ -105,14 +108,14 @@ h1 { font-size: 1.5em; margin: 10px; }
       
                 <div class="span10 offset1"> 
                     <div class="row"> 
-                        <h3>Create a Review</h3> 
+                        <h3>Create Review</h3> 
                     </div> 
               
                     <form class="form-horizontal" action="rev_create.php" method="post"> 
                        
                        
                        <div class="control-group"> 
-                        <label class="control-label">Person</label> 
+                        <label class="control-label">Person (Reviewer)</label> 
                         <div class="controls"> 
                         <?php 
                          
